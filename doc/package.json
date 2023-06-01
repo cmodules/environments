@@ -1,0 +1,10 @@
+{
+  "name": "environments-doc",
+  "version": "0.0.1",
+  "description": "Documents webpage for 'cmodules/environments'.",
+  "main": "index.js",
+  "repository": "https://github.com/cmodules/environments.git",
+  "author": "StoneyDSP <nathanjhood@googlemail.com>",
+  "license": "MIT",
+  "private": true
+}
