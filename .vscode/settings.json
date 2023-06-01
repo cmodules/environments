@@ -1,0 +1,49 @@
+{
+    "json.format.enable": true,
+    "json.format.keepLines": true,
+    "json.schemaDownload.enable": true,
+    "json.validate.enable": true,
+    "json.trace.server": "verbose",
+    "json.maxItemsComputed": 5000,
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "*env.json"
+            ],
+            "url": "/src/cmodules/environs/env.schema.json"
+        }
+    ],
+    "files.associations": {
+        "*env.json": "jsonc"
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "files.enableTrash": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.indentSize": "tabSize",
+    "editor.tabSize": 4,
+    "editor.renderFinalNewline": "dimmed",
+    "editor.trimAutoWhitespace": true,
+    "editor.maxTokenizationLineLength": 20000,
+    "editor.insertSpaces": true,
+    "editor.suggest.insertMode": "insert",
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",
+        "strings": "off"
+    },
+    "[json]": {
+        "editor.quickSuggestions": {
+        "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    }
+}
