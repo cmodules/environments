@@ -1,0 +1,185 @@
+{
+  "$schema": "./environment.schema.json",
+
+  "version": {
+    "major": 0,
+    "minor": 0,
+    "patch": 0,
+    "tweak": "environment"
+  },
+
+  "environments": [
+    {
+      "default": {
+        "version": "0.0.0-environment_default",
+        "info": "A set of default environment values for fall-through cases on all UNIX-like platforms.",
+        "inherits": [""],
+        "directories": {
+          "RCS": "",
+          "SCCS": ""
+        },
+        "system": {
+
+        },
+        "make": {
+          // // Example compiled variable
+          // "EXEC_PREFIX": "",
+          // "EXEC_POSTFIX": ".exe",
+          // "STATIC_LIB_PREFIX": "",
+          // "STATIC_LIB_POSTFIX": ".lib",
+          // "TARGET": "application",
+          // "BIN": "${EXEC_PREFIX}${TARGET}${EXEC_POSTFIX}", // 'BIN' == 'target.exe'....
+          // "STATIC_LIB": "${STATIC_LIB_PREFIX}${TARGET}${STATIC_LIB_POSTFIX}", // 'BIN' == 'target.exe'....
+          // // Triplets
+          // "HOST_ARCH": "",
+          // "TARGET_ARCH": "",
+          // "TARGET_MACH": "",
+
+          // Toolchain binaries
+          "AR": "ar",
+          "AS": "as",
+          "CC": "cc",
+          "CO": "co",
+          "CPP": "cpp",
+          "CXX": "c++",
+          "FC": "fc",
+          "HG": "hg",
+          "LD": "ld",
+          "LN": "ln",
+          "MT": "mt",
+          "NM": "nm",
+          "RC": "rc",
+          "RM": "rm",
+          // Common flags
+          "ALL": "--all",
+          "HELP": "--help",
+          "LIST": "--list",
+          "OUTPUT": "--output",
+          "QUIET": "--quiet",
+          "RECURSE": "--recurse",
+          "RECURSIVE": "--recursive",
+          "VERBOSE": "--verbose",
+          "VERSION": "--version",
+          // Binary flags
+          "ARFLAGS": "-rv",
+          "ASFLAGS": "",
+          "CFLAGS": "",
+          "COFLAGS": "",
+          "CPPFLAGS": "",
+          "CXXFLAGS": "",
+          "FFLAGS": "",
+          "LDFLAGS": "",
+          "LNFLAGS": "",
+          "RCFLAGS": "",
+          "RMFLAGS": [
+            "--recursive",
+            "--dir",
+            "--interactive",
+            "--verbose"
+          ],
+          // Additional binaries
+          "CWEAVE": "cweave",
+          "LEX": "lex",
+          "LINK": "ld",
+          "LINT": "lint",
+          "OBJC": "cc",
+          "OBJCOPY": "",
+          "OBJDUMP": "",
+          "OBJCXX": "c++",
+          "RANLIB": "ranlib",
+          "YACC": "yacc",
+          // Additional binaries flags
+          "LINTFLAGS": "",
+          "OBJCFLAGS": "",
+          "OBJCXXFLAGS": "",
+          "YFLAGS": "",
+          // Paths
+          "BINDIR": "/usr/bin",
+          "INSTALL_BINDIR": "/usr/local/bin",
+          "PATH": [
+            "/usr/local/bin",
+            "/usr/bin",
+            "/bin",
+            "/c/Windows/System32",
+            "/c/Windows",
+            "/c/Windows/System32/Wbem",
+            "/c/Windows/System32/WindowsPowerShell/v1.0/",
+            "/usr/bin/site_perl",
+            "/usr/bin/vendor_perl",
+            "/usr/bin/core_perl"
+          ],
+          // Utils
+          "EDITOR": "code",
+          "SHELL": "bash",
+          "PATH_SEPERATOR": ":",
+          "SUFFIXES": [
+            ".out",
+            ".a",
+            ".ln",
+            ".o",
+            ".c",
+            ".cc",
+            ".C",
+            ".cpp",
+            ".p",
+            ".f",
+            ".F",
+            ".m",
+            ".r",
+            ".y",
+            ".l",
+            ".ym",
+            ".yl",
+            ".s",
+            ".S",
+            ".mod",
+            ".sym",
+            ".def",
+            ".h",
+            ".info",
+            ".dvi",
+            ".tex",
+            ".texinfo",
+            ".texi",
+            ".txinfo",
+            ".w",
+            ".ch",
+            ".web",
+            ".sh",
+            ".elc",
+            ".el"
+          ]
+        },
+        "files": {},
+        "extensions": [
+          {
+            "pkgconfig": {
+              "variables": {
+                "PKG_CONFIG_SYSTEM_LIBRARY_PATH": ""
+              }
+            }
+          },
+          {
+            "vcpkg": {
+              "variables": {
+                "VCPKG": "vcpkg",
+                "VCPKG_ROOT": ".",
+                "VCPKG_DEFAULT_BINARY_CACHE": "${VCPKG_ROOT}/archives",
+                "VCPKG_DOWNLOADS": "${VCPKG_ROOT}/downloads"
+              }
+            }
+          },
+          {
+            "cmake": {
+              "variables": {
+                "CMAKE": "cmake",
+                "CPACK": "cpack",
+                "CTEST": "ctest"
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
