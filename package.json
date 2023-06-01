@@ -1,11 +1,10 @@
 {
-  "name": "environments",
+  "name": "environments-doc",
   "version": "0.0.1",
-  "description": "'Environments' is a tool to provide management and control over configuration variables used at runtime, on a per-project/repo scope.",
+  "description": "Documents webpage for 'cmodules/environments'.",
   "main": "index.js",
   "repository": "https://github.com/cmodules/environments.git",
   "author": "StoneyDSP <nathanjhood@googlemail.com>",
   "license": "MIT",
-  "private": false,
-  "readme": "https://github.com/cmodules/environments/main/README.md"
+  "private": true
 }
