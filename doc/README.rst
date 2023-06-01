@@ -11,6 +11,6 @@ Reference Manuals
 .. toctree::
    :maxdepth: 1
 
-   /manual/environments-env-variables.7
+   /Help/manual/environments-env-variables.7
 
 .. only:: not man
