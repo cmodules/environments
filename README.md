@@ -23,11 +23,25 @@ The bulk of the project is predominently the 'env.schema.json' file which you ca
 
 The remainder of this file will now have annotated entries for all it's API (which is currently under development, but already working pretty well in it's current state enough to share).
 
+Once your environment is defined, you can easily access it as a Js module from an 'index.js' file;
+
+```
+#!/usr/bin/env node
+
+import * as environment from "./env.json";
+
+const env = environment;
+
+export { env };
+```
+
+You might also use tools such as Node-Gyp, dotconfig, CMakeRC, and the Node Addon API to greatly extend the fucntionality of your new-object-based environment (please see the development branch for current status of all of that...)
+
 Some small examples; first, defining a "base" preset with variables that work across most/all platforms and toolsets, then 'inheriting' this preset's variables to further define distinct presets for "win32" and "unix" - style platforms (a rough example but if you've read this far, then I'm sure this will make sense):
 ```
-// dev.env.json
+// env.json
 {
-  "$schema": "https://github.com/cmodules/environs#",
+  "$schema": "https://raw.githubusercontent.com/cmodules/environments/main/env.schema.json#",
   "version": 2,
   "environmentPresets": [
     {
@@ -64,7 +78,18 @@ Some small examples; first, defining a "base" preset with variables that work ac
           "/usr/bin/core_perl"
         ]
       }
-    },
+    }
+  ]
+}
+```
+
+```
+// win32.env.json
+{
+  "$schema": "https://raw.githubusercontent.com/cmodules/environments/main/env.schema.json#",
+  "version": 2,
+  "include": "env.json",
+  "environmentPresets": [
     {
       "name": "win32",
       "inherits": ["base"],
@@ -79,7 +104,7 @@ Some small examples; first, defining a "base" preset with variables that work ac
         "RM": "Remove-Item",
         "CP": "Copy-Item"
       },
-      "variables": {
+      "definitions": {
         "WIN32": true
       },
       "utilities": {
@@ -96,7 +121,18 @@ Some small examples; first, defining a "base" preset with variables that work ac
           "C:/Windows/System32/WindowsPowerShell/v1.0/",
         ]
       }
-    },
+    }
+  ]
+}
+```
+
+```
+// unix.env.json
+{
+  "$schema": "https://raw.githubusercontent.com/cmodules/environments/main/env.schema.json#",
+  "version": 2,
+  "include": "env.json",
+  "environmentPresets": [
     {
       "name": "unix",
       "inherits": ["base"],
@@ -108,7 +144,18 @@ Some small examples; first, defining a "base" preset with variables that work ac
         "RM": "rm"
       },
       "variables": {}
-    },
+    }
+  ]
+}
+```
+
+```
+// apple.env.json
+{
+  "$schema": "https://raw.githubusercontent.com/cmodules/environments/main/env.schema.json#",
+  "version": 2,
+  "include": "unix.env.json",
+  "environmentPresets": [
     {
       "name": "apple",
       "inherits": ["unix"],
@@ -121,5 +168,4 @@ Some small examples; first, defining a "base" preset with variables that work ac
     }
   ]
 }
-
 ```
