@@ -173,7 +173,7 @@ Some small examples; first, defining a "base" preset with variables that work ac
 Once your environment is fully defined, you should have some highly portable variable "recipes" for easy script and shell command syntaxes. For example, to run your Object file linker to create a compiled binary, you sould call the following command from a script or command line;
 
 ```
-$(LINK).cpp $^ $(LOADLIBES) $(LDLIBS) $(OUTPUT_FLAG) $@
+C:/my/project/> ${LD} ${SOURCE_CODE}.cpp ${LDLIBS} ${LDFLAGS} ${OUTPUT_FLAG} ${LIB_DIR}
 ```
 
 These variables should resolve against the in-use environment preset, meaning that you might switch to a different environment preset but call the exact same above command, resolving to an executable command appropriate to the chosen preset environment.
