@@ -2,7 +2,7 @@
 
 ## Introduction
 
-'Environments' is a developer/build tool designed to expose a preset-based management of, and control over, environment configuration variables consumed by runtime applications, on a per-project/repo scope. Intended usage resembles a middle-ground between NVM (Node version manager), the CMakePresets.json API, and NodeJS '.env' files.
+'Environments' is a developer/build tool designed to expose a preset-based management of, and control over, environment configuration variables consumed by runtime applications, on a per-project/repo scope. Intended usage resembles a middle-ground between [NVM (Node version manager)](https://github.com/nvm-sh/nvm), the [CMakePresets.json API](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html), and [NodeJS '.env' files](https://github.com/motdotla/dotenv).
 
 Web, native, and embedded developers will be familiar with the usage of '.env' files to provide different configurations to your runtimes, based on particular choices (i.e., a 'debug'-mode environment might connect your codebase to a local server for testing, whereas the corresponding 'release'-mode connects to the online production server).
 
@@ -204,3 +204,11 @@ These variables should resolve against the in-use environment preset, meaning th
 This API is under development, but it's likely that users of NodeJS and tools like Make and CMake will understand the mechanisms enough to experiment with the existing codebase - and perhaps offer some useage suggestions etc to help reach maturity of functionality even further :)
 
 Thanks for reading!
+
+https://gcc.gnu.org/onlinedocs/gcc/Environment-Variables.html
+https://www.gnu.org/software/make/manual/make.html
+https://earthly.dev/blog/makefile-variables/
+https://llvm.org/docs/GettingStarted.html#local-llvm-configuration
+https://clang.llvm.org/docs/UsersManual.html
+https://vector-of-bool.github.io/2017/01/21/cmrc.html
+https://blog.conan.io/2022/10/13/Different-flavors-Clang-compiler-Windows.html
