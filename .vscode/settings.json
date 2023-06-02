@@ -10,30 +10,12 @@
             "fileMatch": [
                 "*env.json"
             ],
-            "url": "/src/cmodules/environs/env.schema.json"
+            "url": "https://raw.githubusercontent.com/cmodules/environments/main/env.schema.json#",
         }
     ],
     "files.associations": {
         "*env.json": "jsonc"
     },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true
-    },
-    "files.enableTrash": true,
-    "files.insertFinalNewline": true,
-    "files.trimFinalNewlines": true,
-    "files.trimTrailingWhitespace": true,
-    "editor.indentSize": "tabSize",
-    "editor.tabSize": 4,
-    "editor.renderFinalNewline": "dimmed",
-    "editor.trimAutoWhitespace": true,
-    "editor.maxTokenizationLineLength": 20000,
-    "editor.insertSpaces": true,
     "editor.suggest.insertMode": "insert",
     "editor.quickSuggestions": {
         "other": "on",
