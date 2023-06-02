@@ -212,6 +212,26 @@ C:/my/project/> "${REBUILD_LIBRARY}"
 // "building..."
 ```
 
+A nice utility could be to add 'verbose' flags/args to your 'debug' environment, for further technical readouts of the processes being called. Perhaps even better, you could add a 'VERBOSE' flag to the command at the "base"-preset level, and simply leave it undefined (and thus resolves to an empty char) in environments that verbosity is not required.
+
+```
+{
+  {
+    "environmentPreset": [
+      "debug": {
+        "VERBOSE": true
+      },
+      "release": {
+        // "VERBOSE": null
+      }
+    ]
+  }
+  // Make a wrapped command that contains a '--verbose' flag at a global level:
+  "CLEAN_LIBRARY_VERB": "${RM_COMMAND} {VERBOSE} ${LIB_DIR}/{SOURCE_CODE}.dll && ${ECHO} 'cleaning...'",
+  "REBUILD_LIBRARY": "${CLEAN_LIBRARY_VERB} && ${BUILD_LIBRARY}"
+}
+```
+
 These variables should resolve against the in-use environment preset, meaning that you might switch to a different environment preset but call the exact same above command, resolving to an executable command appropriate to the chosen preset environment. The variable '${LD}' - here, pointing at a library linker executable - might resolve to a different program, when switching from an 'x64 64bit arch' preset to an 'x86 32bit arch' environment preset, or perhaps you might have the resulting file placed inside a differing '${LIB_DIR}' depending if operating in a 'debug'- or 'release'-mode environment preset.
 
 This API is under development, but it's likely that users of NodeJS and tools like Make and CMake will understand the mechanisms enough to experiment with the existing codebase - and perhaps offer some useage suggestions etc to help reach maturity of functionality even further :)
