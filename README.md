@@ -205,6 +205,8 @@ You might also have binaries - or even vars - that only exist on a single platfo
 }
 ```
 
+## Wrapped command line recipes
+
 Once your environment is fully defined, you should (in theory) have some highly portable variable "recipes" for easy script and shell command syntaxes. For example, to run your Object file linker to create a dynamically-linked library ('.dll' file), you could define the following command from a script or command line;
 
 ```
