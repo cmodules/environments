@@ -4,7 +4,7 @@ Please note that this repo is in an experimental/conceptual state as of writing,
 
 *I have considered the potential dangers of somebody nuking their system variables in some sort of experiment using the ideas presented here, and I thoroughly recommend that such risks are kept firmly in mind before sharing these concepts on a public forum. A large measure of low-level user-safety features will likely be required for any finalized implementation of the concepts discussed and presented in this repo. No such security efforts have even been considered during this currently-ongoing coneptualization stage.*
 
-tl;dr: proceed with caution.
+tl;dr: proceed with caution. This is mostly semi-working psuedo-code at this point.
 
 ## Introduction
 
