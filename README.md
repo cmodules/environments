@@ -97,6 +97,8 @@ Some small examples; first, defining a "base" preset with variables that work ac
 }
 ```
 
+A recommended "best practice" approach would be to define most of your required variables in a "base"-level preset, and then inherit this and override *just* the few changes that you need;
+
 ```
 // win32.env.json
 {
@@ -114,9 +116,9 @@ Some small examples; first, defining a "base" preset with variables that work ac
       },
       "commands": {
         // Common commands
-        "PROMPT": "$binaries{CMD}",
         "RM": "Remove-Item",
-        "CP": "Copy-Item"
+        "CP": "Copy-Item",
+        "PROMPT": "$binaries{CMD}"
       },
       "definitions": {
         "WIN32": true
@@ -139,6 +141,8 @@ Some small examples; first, defining a "base" preset with variables that work ac
   ]
 }
 ```
+
+Because of inheritance, you might only need to alter a small part of a larger definition, such as amending the flags from the previously-constructed "CP_COMMAND" and "RM_COMMAND" vars when in certain Unix environments:
 
 ```
 // unix.env.json
@@ -164,6 +168,8 @@ Some small examples; first, defining a "base" preset with variables that work ac
 }
 ```
 
+You might also have binaries - or even vars - that only exist on a single platform, such as with Apple:
+
 ```
 // apple.env.json
 {
@@ -177,7 +183,9 @@ Some small examples; first, defining a "base" preset with variables that work ac
       "binaries": {
         // Clang compiler by default...
         "CC": "AppleClang++"
-        "CXX": "AppleClang++"
+        "CXX": "AppleClang++",
+        // Apple-only, no need to have defined this one at a universal "base" scope...
+        "OSX_DEPLOYMENT_TARGET": 10.13
       },
       "variables": {}
     }
