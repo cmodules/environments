@@ -110,7 +110,10 @@ Some small examples; first, defining a "base" preset with variables that work ac
         // Common commands
         "PROMPT": "$binaries{CMD}",
         "RM": "Remove-Item",
-        "CP": "Copy-Item"
+        "CP": "Copy-Item",
+        // Wrap commands with flags (if flags are undefined, they will just be ignored)...
+        "CP_COMMAND": "${CP} ${CPFLAGS}",
+        "RM_COMMAND": "${RM} ${RMFLAGS}"
       },
       "definitions": {
         "WIN32": true
@@ -144,12 +147,17 @@ Some small examples; first, defining a "base" preset with variables that work ac
     {
       "name": "unix",
       "inherits": ["base"],
-      "binaries": {
-        // Common commands
+      "binaries":
         "CP": "cp",
         "LN": "ln",
         "LS": "ls",
-        "RM": "rm"
+        "RM": "rm",
+        // Flags
+        "CPFLAGS": "-i"
+        "RMFLAGS": "-rvf"
+        // Wrap commands with flags (if flags are undefined, they will just be ignored)...
+        "CP_COMMAND": "${CP} ${CPFLAGS}",
+        "RM_COMMAND": "${RM} ${RMFLAGS}"
       },
       "variables": {}
     }
