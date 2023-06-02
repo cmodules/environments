@@ -176,7 +176,7 @@ Once your environment is fully defined, you should have some highly portable var
 C:/my/project/> ${LD} ${SOURCE_CODE}.cpp ${LDLIBS} ${LDFLAGS} ${OUTPUT_FLAG} ${LIB_DIR}
 ```
 
-These variables should resolve against the in-use environment preset, meaning that you might switch to a different environment preset but call the exact same above command, resolving to an executable command appropriate to the chosen preset environment. The variable '${LD}' - here, pointing at a library linker executable - might resolve to a different program, when switching from an 'x64 64bit arch' preset to an 'x86 32bit arch' environment preset, or perhaps you might have the resulting file placed inside a differing '${LIB_DIR}' depending if building for debug or release modes.
+These variables should resolve against the in-use environment preset, meaning that you might switch to a different environment preset but call the exact same above command, resolving to an executable command appropriate to the chosen preset environment. The variable '${LD}' - here, pointing at a library linker executable - might resolve to a different program, when switching from an 'x64 64bit arch' preset to an 'x86 32bit arch' environment preset, or perhaps you might have the resulting file placed inside a differing '${LIB_DIR}' depending if operating in a 'debug'- or 'release'-mode environment preset.
 
 This API is under development, but it's likely that users of NodeJS and tools like Make and CMake will understand the mechanisms enough to experiment with the existing codebase - and perhaps offer some useage suggestions etc to help reach maturity of functionality even further :)
 
