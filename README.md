@@ -1,8 +1,14 @@
 # Environments
 
+Please note that this repo is in an experimental/conceptual state as of writing, and thus the abstractions contained in this readme do no reflect the actual working state of any of the code presented in this public project repository. Any working implementations of the ideas presented herein should most likely be viewed with caution, until the concepts can be further developed into git workflow test runs that will be presented in place of this text when the time comes. Meanwhile, any further particular interest in the idea would be welcomed particularly in the form of suggestions, and criticisms.*
+
+*I have considered the potential dangers of somebody nuking their system variables in some sort of experiment using the ideas presented here, and I thoroughly recommend that such risks are kept firmly in mind before sharing these concepts on a public forum. A large measure of low-level user-safety features will likely be required for any finalized implementation of the concepts discussed and presented in this repo. No such security efforts have even been considered during this currently-ongoing coneptualization stage.*
+
+tl;dr: proceed with caution.
+
 ## Introduction
 
-'Environments' is a developer/build tool designed to expose a preset-based management of, and control over, environment configuration variables consumed by runtime applications, on a per-project/repo scope. Intended usage resembles a middle-ground between [NVM (Node version manager)](https://github.com/nvm-sh/nvm), the [CMakePresets.json API](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html), and [NodeJS '.env' files](https://github.com/motdotla/dotenv).
+'Environments' is a developer/build tool designed to expose a preset-based management of, and control over, environment configuration variables consumed by runtime applications, on a per-project/repo scope. Intended usage resembles a middle-ground between [NVM (Node version manager)](https://github.com/nvm-sh/nvm), the [CMakePresets.json API](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html), and [NodeJS '.env' files](https://github.com/motdotla/dotenv). Ideal targets might be multi-platform development, CI/CD runs, scripted batch processing, error reporting, embedded-style debugging...
 
 Web, native, and embedded developers will be familiar with the usage of '.env' files to provide different configurations to your runtimes, based on particular choices (i.e., a 'debug'-mode environment might connect your codebase to a local server for testing, whereas the corresponding 'release'-mode connects to the online production server).
 
