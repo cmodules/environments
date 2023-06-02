@@ -54,10 +54,16 @@ Some small examples; first, defining a "base" preset with variables that work ac
   "environmentPresets": [
     {
       "name": "base",
+      "commands": {
+        // Wrap commands with flags (if flags are undefined, they will just be ignored)...
+        "CP_COMMAND": "${CP} ${CPFLAGS}",
+        "RM_COMMAND": "${RM} ${RMFLAGS}"
+      },
       "flags": {
         "ALL": "--all",
         "HELP": "--help",
         "IGNORE": "--ignore",
+        "INTERACTIVE": "--interactive",
         "LIST": "--list",
         "OUTPUT": "--output",
         "PRESET": "--preset",
@@ -110,10 +116,7 @@ Some small examples; first, defining a "base" preset with variables that work ac
         // Common commands
         "PROMPT": "$binaries{CMD}",
         "RM": "Remove-Item",
-        "CP": "Copy-Item",
-        // Wrap commands with flags (if flags are undefined, they will just be ignored)...
-        "CP_COMMAND": "${CP} ${CPFLAGS}",
-        "RM_COMMAND": "${RM} ${RMFLAGS}"
+        "CP": "Copy-Item"
       },
       "definitions": {
         "WIN32": true
@@ -148,16 +151,12 @@ Some small examples; first, defining a "base" preset with variables that work ac
       "name": "unix",
       "inherits": ["base"],
       "binaries":
-        "CP": "cp",
         "LN": "ln",
         "LS": "ls",
-        "RM": "rm",
         // Flags
-        "CPFLAGS": "-i"
-        "RMFLAGS": "-rvf"
-        // Wrap commands with flags (if flags are undefined, they will just be ignored)...
-        "CP_COMMAND": "${CP} ${CPFLAGS}",
-        "RM_COMMAND": "${RM} ${RMFLAGS}"
+        "CPFLAGS": "${INTERACTIVE}",
+        "LSFLAGS": "${LIST} ${ALL}",
+        "RMFLAGS": "-f ${RECURSE} ${VERBOSE}"
       },
       "variables": {}
     }
