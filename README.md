@@ -10,13 +10,19 @@ tl;dr: proceed with caution. This is mostly semi-working psuedo-code at this poi
 
 'Environments' is a developer/build tool designed to expose a preset-based management of, and control over, environment configuration variables consumed by runtime applications, on a per-project/repo scope. Intended usage resembles a middle-ground between [NVM (Node version manager)](https://github.com/nvm-sh/nvm), the [CMakePresets.json API](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html), and [NodeJS '.env' files](https://github.com/motdotla/dotenv). Ideal targets might be multi-platform development, CI/CD runs, scripted batch processing, error reporting, embedded-style debugging...
 
+## Objects and types
+
 Web, native, and embedded developers will be familiar with the usage of '.env' files to provide different configurations to your runtimes, based on particular choices (i.e., a 'debug'-mode environment might connect your codebase to a local server for testing, whereas the corresponding 'release'-mode connects to the online production server).
 
 While these '.env' files are emminently useful and powerful development tools, they only provide a simple allocation of 'key = value'; there is no concept of type inference - is a version number parsed as a string of chars, or an array of integers? There is also no opportunity to provide descriptive information, or contain multiple possible result variables, or perhaps types, inside the definition.
 
 To this end, 'Environments' is an experimental attempt at using Javascript's object notation (JSON) to increase the available utility of environment variables during development, and provide more interactive ways of sourcing, tracking, and understanding the environment that are building for, or perhaps even deploying to. 
 
+## Custom binary compilation
+
 Furthermore, these environment variable presets can easily be built into compiled binary files using simple and highly familiar command-line instructions, which can then be linked into your executable applications for controlling runtime behaviours and logic. Supported binary output formats include system-native executables, static and dynamic C/C++ libraries, and NodeJS native addon modules. Environment variables can also be pulled from an existing runtime environment and recorded into our customary JSON-formatted files, allowing further inspection, control, and experimentation. This aspect of the tool also aims to provide a level of runtime safety and security via binary encryption into a wide range of deployable formats. 
+
+## Customize compatibility and interoperability
 
 The bulk of the project is predominently centred on the 'env.schema.json' file which you can call from the '$schema' key in a new .JSON file, like so;
 
