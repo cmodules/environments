@@ -239,16 +239,24 @@ The variable could be meta and report itself for inspection (with enough variabl
 // rm --verbose ./lib/MyLibrary.dll && echo 'cleaning...'
 ```
 
-These variables should resolve against the in-use environment preset, meaning that you might switch to a different environment preset but call the exact same above command, resolving to an executable command appropriate to the chosen preset environment. The variable '${LD}' - here, pointing at a library linker executable - might resolve to a different program, when switching from an 'x64 64bit arch' preset to an 'x86 32bit arch' environment preset, or perhaps you might have the resulting file placed inside a differing '${LIB_DIR}' depending if operating in a 'debug'- or 'release'-mode environment preset.
+These variables should resolve against the in-use environment preset, meaning that you might switch to a different environment preset but call the exact same above command, resolving to an executable command appropriate to the chosen preset environment. The variable '${RM_COMMAND}' - here, pointing at a system command-line executable typically located in 'PATH' - might resolve to a different program, when switching from the 'win32' preset to an 'unix' or 'apple' environment preset, or perhaps you might have the resulting file placed inside a differing '${LIB_DIR}' depending if operating in a 'debug'- or 'release'-mode environment preset. So forth.
 
 This API is under development, but it's likely that users of NodeJS and tools like Make and CMake will understand the mechanisms enough to experiment with the existing codebase - and perhaps offer some useage suggestions etc to help reach maturity of functionality even further :)
 
 Thanks for reading!
 
+Further inspiration:
+
 https://gcc.gnu.org/onlinedocs/gcc/Environment-Variables.html
+
 https://www.gnu.org/software/make/manual/make.html
+
 https://earthly.dev/blog/makefile-variables/
+
 https://llvm.org/docs/GettingStarted.html#local-llvm-configuration
+
 https://clang.llvm.org/docs/UsersManual.html
+
 https://vector-of-bool.github.io/2017/01/21/cmrc.html
+
 https://blog.conan.io/2022/10/13/Different-flavors-Clang-compiler-Windows.html
