@@ -14,7 +14,7 @@
       "name": "myProject-base",
       "description": "Required default env vars for myProject.",
       "version": "1.0.2-b"
-      "hidden": false,
+      "hidden": true,
       "inherits": [
         "msys2-clang64-base"
       ],
@@ -34,17 +34,21 @@
         ]
       }
     },
+    
     {
       "name": "myProject-dbg",
       "inherits": "myProject-base",
+      "hidden": false,
       "variables": {
         "NODE_ENV": "development",
         "CMAKE_BUILD_TYPE": "Debug"
       }
     },
+    
     {
       "name": "myProject-rel",
       "inherits": "myProject-base",
+      "hidden": false,
       "variables": {
         "NODE_ENV": "production",
         "CMAKE_BUILD_TYPE": "Release"
