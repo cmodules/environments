@@ -268,6 +268,7 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
   "$schema": "https://raw.githubusercontent.com/cmodules/environments/main/env.schema.json#",
   "version": 1,
   "environmentPresets": [
+    
     {
       "name": "vcpkg-base",
       "description": "vcpkg package manager - universal defaults",
@@ -279,6 +280,7 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
         "VCPKG_DEFAULT_BINARY_CACHE": "${VCPKG_ROOT}/archives"
       }
     },
+    
     {
       "name": "nodejs-base",
       "description": "NodeJS - universal defaults",
@@ -288,6 +290,7 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
         "NODE_SKIP_PLATFORM_CHECK": 1
       }
     },
+    
     {
       "name": "pkgconfig-base",
       "hidden": true,
@@ -300,6 +303,7 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
         ]
       }
     },
+    
     {
       "name": "msys2-clang64-base",
       "hidden": true,
@@ -311,6 +315,7 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
         "MINGW_PACKAGE_PREFIX": "mingw-w64-clang-x86_64"
       }
     },
+    
     {
       "name": "myProject",
       "description": "Required default env vars for my project.",
