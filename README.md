@@ -261,6 +261,87 @@ One of the key ideas with this project is to have an associative preset file for
 
 'Environments' offers an opportunity to remedy this situation, by shipping "<project>.env.json" files in your development packages and public repos. End-users who assimilate your 'Environments'-assisted projects into their own will have a common interface for all environment varaibles across their entire development toolchain. Alternate versioning, addon-style extensions, and much more can be offered to allow the end-users to try out various features in your projects, without requiring them to dig deep into your documentation (since all variables are objects, which may contain for example a description string as well as its' actual value). Users can then simply make a copy of this shipment file in their project directory, make any customary changes to suit their needs, and source their customized file in place of the defaults. 
 
+A pseudo-example (note that only the final entry, "myProject", is the only one not set to "hidden"):
+    
+```
+{
+  "$schema": "https://raw.githubusercontent.com/cmodules/environments/main/env.schema.json#",
+  "version": 1,
+  "environmentPresets": [
+    {
+      "name": "vcpkg-base",
+      "description": "vcpkg package manager - universal defaults",
+      "hidden": true,
+      "variables": {
+        "VCPKG_ROOT": "${HOME}/vcpkg",
+        "VCPKG_DOWNLOADS": "${VCPKG_ROOT}/downloads",
+        "VCPKG_INSTALLED_DIR": "${VCPKG_ROOT}/installed",
+        "VCPKG_DEFAULT_BINARY_CACHE": "${VCPKG_ROOT}/archives"
+      }
+    },
+    {
+      "name": "nodejs-base",
+      "description": "NodeJS - universal defaults",
+      "hidden": true,
+      "variables": {
+        "NODE_ENV": "development",
+        "NODE_SKIP_PLATFORM_CHECK": 1
+      }
+    },
+    {
+      "name": "pkgconfig-base",
+      "hidden": true,
+      "variables": {
+        "PKG_CONFIG_SYSTEM_INCLUDE_PATH": "/include",
+        "PKG_CONFIG_SYSTEM_LIBRARY_PATH": "/lib",
+        "PKG_CONFIG_PATH": [
+          "/lib/pkgconfig",
+          "/share/pkgconfig"
+        ]
+      }
+    },
+    {
+      "name": "msys2-clang64-base",
+      "hidden": true,
+      "variables": {
+        "MSYSTEM": "CLANG64",
+        "MSYSTEM_CARCH": "x86_64",
+        "MINGW_PREFIX": "/clang64",
+        "MINGW_CHOST": "${MSYSTEM_CARCH}-w64-mingw32",
+        "MINGW_PACKAGE_PREFIX": "mingw-w64-clang-x86_64"
+      }
+    },
+    {
+      "name": "myProject",
+      "description": "Required default env vars for my project.",
+      "hidden": false,
+      "inherits": [
+        "vcpkg-base",
+        "nodejs-base",
+        "pkgconfig-base",
+        "msys2-clang64-base"
+      ],
+      "variables": {
+        "VCPKG_ROOT": "${MINGW_PREFIX}",
+        "NODE_PATH": [
+          "${VCPKG_INSTALLED_DIR}",
+          "${VCPKG_DOWNLOADS}/tools",
+          "{NODE_PATH}"
+        ],
+        "PKG_CONFIG_SYSTEM_INCLUDE_PATH": "/${MINGW_PREFIX}/include",
+        "PKG_CONFIG_SYSTEM_LIBRARY_PATH": "/${MINGW_PREFIX}/lib",
+        "PKG_CONFIG_PATH": [
+          "/${MINGW_PREFIX}/lib/pkgconfig",
+          "/${MINGW_PREFIX}/share/pkgconfig",
+          "{PKG_CONFIG_PATH}"
+        ]
+      }
+    }
+  ]
+}
+
+```
+    
 This API is under development, but it's likely that users of NodeJS and tools like Make and CMake will understand the mechanisms enough to experiment with the existing codebase - and perhaps offer some useage suggestions etc to help reach maturity of functionality even further :)
 
 Thanks for reading!
