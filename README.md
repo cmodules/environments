@@ -19,18 +19,20 @@
       ],
       "variables": {
         "VCPKG_ROOT": "${MINGW_PREFIX}",
-        "NODE_PATH": [
-          "${VCPKG_INSTALLED_DIR}",
-          "${VCPKG_DOWNLOADS}/tools",
-          "${NODE_PATH}"
-        ],
         "PKG_CONFIG_SYSTEM_INCLUDE_PATH": "${VCPKG_ROOT}/include",
         "PKG_CONFIG_SYSTEM_LIBRARY_PATH": "${VCPKG_ROOT}/lib",
         "PKG_CONFIG_PATH": [
           "${VCPKG_ROOT}/lib/pkgconfig",
           "${VCPKG_ROOT}/share/pkgconfig",
           "${PKG_CONFIG_PATH}"
-        ]
+        ],
+        "NODE_PATH": [
+          "${VCPKG_INSTALLED_DIR}",
+          "${VCPKG_DOWNLOADS}/tools",
+          "${NODE_PATH}"
+        ],
+        "NODE_ENV": "development",
+        "CMAKE_BUILD_TYPE": "Debug"
       }
     }
   ]
