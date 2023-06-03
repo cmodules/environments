@@ -331,14 +331,14 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
         "NODE_PATH": [
           "${VCPKG_INSTALLED_DIR}",
           "${VCPKG_DOWNLOADS}/tools",
-          "{NODE_PATH}"
+          "${NODE_PATH}"
         ],
-        "PKG_CONFIG_SYSTEM_INCLUDE_PATH": "/${MINGW_PREFIX}/include",
-        "PKG_CONFIG_SYSTEM_LIBRARY_PATH": "/${MINGW_PREFIX}/lib",
+        "PKG_CONFIG_SYSTEM_INCLUDE_PATH": "${MINGW_PREFIX}/include",
+        "PKG_CONFIG_SYSTEM_LIBRARY_PATH": "${MINGW_PREFIX}/lib",
         "PKG_CONFIG_PATH": [
-          "/${MINGW_PREFIX}/lib/pkgconfig",
-          "/${MINGW_PREFIX}/share/pkgconfig",
-          "{PKG_CONFIG_PATH}"
+          "${MINGW_PREFIX}/lib/pkgconfig",
+          "${MINGW_PREFIX}/share/pkgconfig",
+          "${PKG_CONFIG_PATH}"
         ]
       }
     }
