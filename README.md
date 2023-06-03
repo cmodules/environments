@@ -312,7 +312,7 @@ One of the key ideas with this project is to have an associative preset file for
 
 'Environments' offers an opportunity to remedy this situation, by shipping "<project>.env.json" files in your development packages and public repos. End-users who assimilate your 'Environments'-assisted projects into their own will have a common interface for all environment varaibles across their entire development toolchain. Alternate versioning, addon-style extensions, and much more can be offered to allow the end-users to try out various features in your projects, without requiring them to dig deep into your documentation (since all variables are objects, which may contain for example a description string as well as its' actual value). Users can then simply make a copy of this shipment file in their project directory, make any customary changes to suit their needs, and source their customized file in place of the defaults. 
 
-A pseudo-example (note that only the final entry, "myProject", is the only one not set to "hidden"):
+A pseudo-example (note that only the final two entries, "myProject-dev" and "myProject-prod", are the only ones not set to "hidden" here):
     
 ```
 {
@@ -368,9 +368,9 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
     },
     
     {
-      "name": "myProject",
+      "name": "myProject-base",
       "description": "Required default env vars for my project.",
-      "hidden": false,
+      "hidden": true,
       "inherits": [
         "vcpkg-base",
         "nodejs-base",
@@ -391,6 +391,26 @@ A pseudo-example (note that only the final entry, "myProject", is the only one n
           "${MINGW_PREFIX}/share/pkgconfig",
           "${PKG_CONFIG_PATH}"
         ]
+      }
+    },
+    
+    {
+      "name": "myProject-dbg",
+      "inherits": "myProject-base",
+      "hidden": false,
+      "variables": {
+        "NODE_ENV": "development",
+        "CMAKE_BUILD_TYPE": "Debug"
+      }
+    },
+    
+    {
+      "name": "myProject-rel",
+      "inherits": "myProject-base",
+      "hidden": false,
+      "variables": {
+        "NODE_ENV": "production",
+        "CMAKE_BUILD_TYPE": "Release"
       }
     }
   ]
